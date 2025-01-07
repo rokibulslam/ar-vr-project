@@ -1,0 +1,11 @@
+Model Information:
+* title:	Guardian
+* source:	https://sketchfab.com/3d-models/guardian-1ce2d3661ea54c37a9ad4c41c8435a99
+* author:	patrix (https://sketchfab.com/patrix)
+
+Model License:
+* license type:	CC-BY-SA-4.0 (http://creativecommons.org/licenses/by-sa/4.0/)
+* requirements:	Author must be credited. Modified versions must have the same license. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Guardian" (https://sketchfab.com/3d-models/guardian-1ce2d3661ea54c37a9ad4c41c8435a99) by patrix (https://sketchfab.com/patrix) licensed under CC-BY-SA-4.0 (http://creativecommons.org/licenses/by-sa/4.0/)
