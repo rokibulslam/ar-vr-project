@@ -1,30 +1,3 @@
-// import "@google/model-viewer";
-// import React from "react";
-
-// interface ModelViewerProps {
-//   src: string; // Path to your .gltf model
-//   alt: string;
-//   ar?: boolean;
-// }
-
-// const ModelViewer: React.FC<ModelViewerProps> = ({ src, alt, ar = false }) => {
-//   return (
-//     <model-viewer
-//       src={src}
-//       alt={alt}
-//       ar={ar}
-//       ar-modes="webxr scene-viewer"
-//       camera-controls
-//       shadow-intensity="1"
-//       style={{
-//         width: "100%",
-//         height: "500px",
-//       }}
-//     ></model-viewer>
-//   );
-// };
-
-// export default ModelViewer;
 import "@google/model-viewer";
 import React, { useEffect, useRef } from "react";
 
@@ -35,7 +8,7 @@ interface ModelViewerProps {
   color?: string; // Optional: Initial color
 }
 
-const ModelViewer: React.FC<ModelViewerProps> = ({
+export const ModelViewer: React.FC<ModelViewerProps> = ({
   src,
   alt,
   ar = false,
@@ -78,5 +51,3 @@ const ModelViewer: React.FC<ModelViewerProps> = ({
     ></model-viewer>
   );
 };
-
-export default ModelViewer;
