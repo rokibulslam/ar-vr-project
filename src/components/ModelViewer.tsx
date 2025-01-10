@@ -1,11 +1,23 @@
 import "@google/model-viewer";
 import React, { useEffect, useRef } from "react";
 
+interface ModelViewerElement extends HTMLElement {
+  model?: {
+    materials: {
+      pbrMetallicRoughness: {
+        setBaseColorFactor: (color: [number, number, number, number]) => void;
+        setMetallicFactor: (metallic: number) => void;
+        setRoughnessFactor: (roughness: number) => void;
+      };
+    }[];
+  };
+}
+
 interface ModelViewerProps {
-  src: string; // Path to your .gltf model
+  src: string;
   alt: string;
   ar?: boolean;
-  color?: string; // Optional: Initial color
+  color?: string;
 }
 
 export const ModelViewer: React.FC<ModelViewerProps> = ({
@@ -14,20 +26,19 @@ export const ModelViewer: React.FC<ModelViewerProps> = ({
   ar = false,
   color,
 }) => {
-  const modelViewerRef = useRef<any>(null);
+  const modelViewerRef = useRef<ModelViewerElement>(null);
 
-  // Update material color dynamically
   const updateColor = (newColor: string) => {
-    const modelViewer = modelViewerRef.current;
-    if (modelViewer && modelViewer.model) {
-      const [r, g, b, a] = newColor.split(",").map(Number); // Parse RGBA color
-      const baseColor = [r, g, b, a];
-      modelViewer.model.materials.forEach((material: any) => {
+    if (modelViewerRef.current?.model?.materials) {
+      const [r, g, b, a] = newColor.split(",").map(Number); // Parse RGBA values
+      const baseColor: [number, number, number, number] = [r, g, b, a];
+      modelViewerRef.current.model.materials.forEach((material) => {
         material.pbrMetallicRoughness.setBaseColorFactor(baseColor);
       });
     }
   };
 
+  // Apply the color when the component mounts or the `color` prop changes
   useEffect(() => {
     if (color) {
       updateColor(color);
@@ -41,9 +52,9 @@ export const ModelViewer: React.FC<ModelViewerProps> = ({
       alt={alt}
       ar={ar}
       ar-modes="webxr scene-viewer"
+      poster="/src/assets/3d.jpg"
       camera-controls
       shadow-intensity="1"
-      // exposure="1"
       style={{
         width: "100%",
         height: "500px",

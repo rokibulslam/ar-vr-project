@@ -10,6 +10,7 @@ declare namespace JSX {
       "ar-modes"?: string;
       "camera-controls"?: boolean;
       "shadow-intensity"?: string;
+      poster: string;
       exposure?: string;
       style?: React.CSSProperties;
     };
