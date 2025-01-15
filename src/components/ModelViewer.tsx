@@ -77,18 +77,18 @@ export const ModelViewer: React.FC<ModelViewerProps> = ({
   }, []);
 
   return (
-    <div className="relative w-full h-500px">
+    <div className="relative w-full h-full">
       {!isLoaded && (
-        <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-75 z-10">
-          <div className="w-3/4">
-            <div className="text-center mb-4">Loading Model...</div>
-            <div className="w-full bg-gray-200 rounded-full h-4">
+        <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-75 z-10 ">
+          <div className="">
+            <div className="w-full bg-gray-200 rounded-full h-1">
               <div
-                className="bg-blue-500 h-4 rounded-full"
+                className="bg-blue-500 h-1 rounded-full w-[100px] "
                 style={{ width: `${loadingProgress}%` }}
               ></div>
             </div>
             <div className="text-center mt-2">{loadingProgress}%</div>
+            <div className="text-center mb-4">Loading Model</div>
           </div>
         </div>
       )}
